@@ -13,8 +13,32 @@
     box-sizing: border-box;
     border: none;
 }
+
+@keyframes fade-in-down{
+    0%{
+    opacity: 0;
+    transform: translate3d(0, -30%, 0);
+    }
+    100%{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fade-in-up{
+    from{
+    opacity: 0;
+    transform: translate3d(0, 30%, 0);
+    }
+    to{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    }
+}
+
 #Main_Menu_-_After {
-    position: absolute;
+    position: relative;
+    top: 0;
     width: 1920px;
     height: 5144px;
     background: linear-gradient(180deg, rgba(187,62,3,1) 0%, rgba(194,55,3,1) 0%, rgba(242,7,5,1) 14.78%, rgba(153,34,39,1) 35.15%, rgba(155,34,38,1) 53.56%, rgba(93,13,93,1) 68.34%, rgba(146,32,47,1) 82.29%, rgba(144,32,49,1) 88.98%, rgba(155,34,38,1) 100%);
@@ -23,17 +47,6 @@
     --web-view-id: Main_Menu_-_After;
     --web-scale-on-resize: true;
     --web-enable-deep-linking: true;
-}
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f3f4f6;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid black;
-    border-radius: 9999px;
-    padding: 16px 30px;
-    margin: 30px;
 }
 
 .logo-container,
@@ -95,82 +108,61 @@
     left: 0px;
     top: 0px;
 }
-#aaf {
+#news1, #news2, #news3, #news4{
     position: absolute;
     width: 400px;
-    height: 400px;
-    left: 1416px;
-    top: 754px;
-    overflow: visible;
-}
-#aag {
-    position: absolute;
-    width: 400px;
-    height: 400px;
+    height: 600px;
     left: 0px;
     top: 0px;
     overflow: visible;
-}
-#aah {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    left: 979px;
-    top: 754px;
-    overflow: visible;
-}
-#aai {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    left: 0px;
-    top: 0px;
-    overflow: visible;
+    z-index: 1;
     --web-animation: fadein undefineds undefined;
     --web-action-type: page;
     --web-action-target: News_Page.html;
     cursor: pointer;
+    z-index: 1;
 }
-#aaj {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    left: 542px;
-    top: 754px;
-    overflow: visible;
+#news1{
+    opacity: 0;
+    animation: fade-in-up  0.4s ease-out forwards 0.7s;
 }
-#aak {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    left: 0px;
-    top: 0px;
-    overflow: visible;
-    --web-animation: fadein undefineds undefined;
-    --web-action-type: page;
-    --web-action-target: News_Page.html;
-    cursor: pointer;
+#news2{
+    opacity: 0;
+    animation: fade-in-up  0.4s ease-out forwards 0.9s;
 }
-#aal {
+#news3{
+    opacity: 0;
+    animation: fade-in-up  0.4s ease-out forwards 1.1s;
+}
+#news4{
+    opacity: 0;
+    animation: fade-in-up  0.4s ease-out forwards 1.3s;
+}
+
+
+
+
+#I {
     position: absolute;
-    width: 400px;
-    height: 400px;
     left: 105px;
     top: 754px;
-    overflow: visible;
 }
-#aam {
+#II{
     position: absolute;
-    width: 400px;
-    height: 400px;
-    left: 0px;
-    top: 0px;
-    overflow: visible;
-    --web-animation: fadein undefineds undefined;
-    --web-action-type: page;
-    --web-action-target: News_Page.html;
-    cursor: pointer;
+    left: 542px;
+    top: 754px;
 }
+#III {
+    position: absolute;
+    left: 979px;
+    top: 754px;
+}
+#IV {
+    position: absolute;
+    left: 1416px;
+    top: 754px;
+}
+
 #aan {
     border: 0;
     left: 110px;
@@ -195,20 +187,25 @@
 
 body {
     background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar {
-    width: 100%;
-    height: 60px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+    border-radius: 9999px;
+    padding: 16px 30px;
+    margin: 30px;
+    z-index: 100;
 }
 
 .logo img {
@@ -290,38 +287,39 @@ body {
     left: 0px;
     top: 0px;
 }
-#aba {
-    mix-blend-mode: normal;
-    position: absolute;
-    width: 274px;
-    height: 55px;
-    left: 20px;
-    top: 22px;
-    overflow: hidden;
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
 }
-#abb {
-    border: 0;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    overflow: visible;
-    width: 275px;
-    white-space: nowrap;
-    text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 45px;
-    color: rgba(255,255,255,1);
-    letter-spacing: 0.16px;
+.event-rsvp {
+    background-color: red;
+    opacity: 0;
+    color: white; 
+    padding: 12px 24px;
+    font-size: 18px; 
+    font-weight: bold;
+    border: none; 
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 200;
+    animation: fade-in-up  0.4s ease-out forwards 0.3s;
 }
+.event-rsvp:hover {
+    background-color: darkred; /* Changes to darker red when hovered */
+}
+
 #abc {
     position: absolute;
+    opacity: 0;
     width: 167.515px;
     height: 250.179px;
     left: 876.242px;
     top: 280.675px;
-    overflow: visible;
+    overflow: invisible;
+    animation: fade-in-down 0.7s ease-out forwards 0.3s;
 }
 #abd {
     filter: drop-shadow(3px 3px 9px rgba(0, 0, 0, 0.161));
@@ -341,8 +339,10 @@ body {
     letter-spacing: -0.3px;
     text-transform: uppercase;
     transition: 1s ease;
+    opacity: 0;
+    animation: fade-in-down 0.7s ease-out forwards;
 }
-#abe {
+#footer{
     position: absolute;
     width: 1920px;
     height: 379px;
@@ -366,22 +366,6 @@ body {
     top: 175px;
     overflow: visible;
 }
-#abh {
-    position: absolute;
-    width: 84.03px;
-    height: 125.496px;
-    left: 80px;
-    top: 175px;
-    overflow: visible;
-}
-#abi {
-    position: absolute;
-    width: 28.539px;
-    height: 32.928px;
-    left: 339.536px;
-    top: 206.981px;
-    overflow: visible;
-}
 #abj {
     fill: rgba(255,255,255,1);
 }
@@ -390,57 +374,12 @@ body {
     position: absolute;
     width: 28.539px;
     height: 32.928px;
-    left: 0px;
-    top: 0px;
+    left: 334.857px;
+    top: 205.07px;
     transform: matrix(1,0,0,1,0,0);
-}
-#abk {
-    position: absolute;
-    width: 28.539px;
-    height: 32.928px;
-    left: 339.536px;
-    top: 206.981px;
-    overflow: visible;
-}
-#abl {
-    fill: rgba(255,255,255,1);
-}
-.abl {
-    overflow: visible;
-    position: absolute;
-    width: 28.539px;
-    height: 32.928px;
-    left: 0px;
-    top: 0px;
-    transform: matrix(1,0,0,1,0,0);
-}
-#abm {
-    position: absolute;
-    width: 43.755px;
-    height: 33.871px;
-    left: 274.857px;
-    top: 206.039px;
-    overflow: visible;
-}
-#abn {
-    position: absolute;
-    width: 43.755px;
-    height: 33.871px;
-    left: 0px;
-    top: 0px;
-    overflow: visible;
 }
 #tiktok {
     fill: rgba(255,255,255,1);
-}
-.abo {
-    overflow: visible;
-    position: absolute;
-    width: 43.755px;
-    height: 33.871px;
-    left: 0px;
-    top: 0px;
-    transform: matrix(1,0,0,1,0,0);
 }
 #discord {
     position: absolute;
@@ -559,7 +498,7 @@ body {
     transform: matrix(1,0,0,1,0,0);
 }
 #youtube {
-    fill: rgba(255,255,255,1);
+    fill: rgb(255, 255, 255);
 }
 .youtube {
     overflow: visible;
@@ -619,7 +558,7 @@ body {
 }
 #acg {
     position: absolute;
-    width: 408.99px;
+    width: auto;
     height: 435.563px;
     left: 0px;
     top: 40.44px;
@@ -627,7 +566,7 @@ body {
 }
 #ach {
     position: absolute;
-    width: 450.583px;
+    width: auto;
     height: 457.515px;
     left: 348.912px;
     top: 18.49px;
@@ -635,7 +574,7 @@ body {
 }
 #aci {
     position: absolute;
-    width: 470.223px;
+    width: auto;
     height: 476px;
     left: 244.932px;
     top: 0px;
@@ -643,7 +582,7 @@ body {
 }
 #acj {
     position: absolute;
-    width: 442.495px;
+    width: auto;
     height: 476px;
     left: 101.67px;
     top: 0px;
@@ -736,7 +675,7 @@ body {
 }
 #acs {
     position: absolute;
-    width: 450.583px;
+    width: auto;
     height: 457.515px;
     left: 386.407px;
     top: 18.488px;
@@ -744,7 +683,7 @@ body {
 }
 #act {
     position: absolute;
-    width: 408.99px;
+    width: auto;
     height: 435.563px;
     left: 0px;
     top: 40.44px;
@@ -752,7 +691,7 @@ body {
 }
 #acu {
     position: absolute;
-    width: 470.223px;
+    width: auto;
     height: 476px;
     left: 244.932px;
     top: 0px;
@@ -760,7 +699,7 @@ body {
 }
 #acv {
     position: absolute;
-    width: 442.495px;
+    width: auto;
     height: 476px;
     left: 101.67px;
     top: 0px;
@@ -959,7 +898,7 @@ body {
     width: 1700px;
     height: 476.005px;
     left: 110px;
-    top: 2976px;
+    top: 3082px;
     overflow: visible;
     --web-animation: fadein undefineds undefined;
     --web-action-type: page;
@@ -1011,7 +950,7 @@ body {
 }
 #ads {
     position: absolute;
-    width: 408.99px;
+    width: auto;
     height: 435.563px;
     left: 0px;
     top: 40.44px;
@@ -1019,26 +958,10 @@ body {
 }
 #adt {
     position: absolute;
-    width: 450.583px;
+    width: auto;
     height: 457.515px;
     left: 348.912px;
     top: 18.49px;
-    overflow: visible;
-}
-#adu {
-    position: absolute;
-    width: 470.223px;
-    height: 476px;
-    left: 244.932px;
-    top: 0px;
-    overflow: visible;
-}
-#adv {
-    position: absolute;
-    width: 442.495px;
-    height: 476px;
-    left: 101.67px;
-    top: 0px;
     overflow: visible;
 }
 #adw {
@@ -1090,7 +1013,7 @@ body {
 }
 #aeb {
     position: absolute;
-    width: 450.583px;
+    width: auto;
     height: 457.515px;
     left: 386.407px;
     top: 18.488px;
@@ -1098,7 +1021,7 @@ body {
 }
 #aec {
     position: absolute;
-    width: 408.99px;
+    width: auto;
     height: 435.563px;
     left: 0px;
     top: 40.44px;
@@ -1106,7 +1029,7 @@ body {
 }
 #aed {
     position: absolute;
-    width: 470.223px;
+    width: auto;
     height: 476px;
     left: 244.932px;
     top: 0px;
@@ -1114,7 +1037,7 @@ body {
 }
 #aee {
     position: absolute;
-    width: 442.495px;
+    width: auto;
     height: 476px;
     left: 101.67px;
     top: 0px;
@@ -1135,9 +1058,6 @@ body {
     left: 111px;
     top: 1924.48px;
     overflow: visible;
-    --web-animation: fadein undefineds undefined;
-    --web-action-type: page;
-    --web-action-target: Valorant_Part.html;
     cursor: pointer;
 }
 #aei {
@@ -1177,7 +1097,7 @@ body {
 }
 #ael {
     position: absolute;
-    width: 408.99px;
+    width: auto;
     height: 435.563px;
     left: 0px;
     top: 40.44px;
@@ -1185,7 +1105,7 @@ body {
 }
 #aem {
     position: absolute;
-    width: 450.583px;
+    width: auto;
     height: 457.515px;
     left: 348.912px;
     top: 18.49px;
@@ -1193,7 +1113,7 @@ body {
 }
 #aen {
     position: absolute;
-    width: 470.223px;
+    width: auto;
     height: 476px;
     left: 244.932px;
     top: 0px;
@@ -1201,7 +1121,7 @@ body {
 }
 #aeo {
     position: absolute;
-    width: 442.495px;
+    width: auto;
     height: 476px;
     left: 101.67px;
     top: 0px;
